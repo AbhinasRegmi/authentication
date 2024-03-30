@@ -40,7 +40,7 @@ export function LoginForm() {
         startTransition(() => {
             setError(undefined);
             setSuccess(undefined);
-            
+
             LoginAction(values)
             .then((data) => {
                 setError(data.error);
@@ -122,38 +122,4 @@ export function LoginForm() {
 
         </CardWrapper>
     )
-}
-
-
-
-
-{
-    /*
-    <Form {...form}>
-                <form 
-                    onSubmit={form.handleSubmit(() => {})}
-                    className='space-y-6'
-                >
-                    <div className='space-y-4'>
-                        <FormField
-                            control={form.control}
-                            name="email"
-                            render={({field}) => (
-                                <FormItem>
-                                    <FormLabel>Email</FormLabel>
-                                    <FormControl>
-                                        <Input 
-                                            {...field}
-                                            type='email'
-                                            placeholder='user@email.com'
-                                        />
-                                    </FormControl>
-                                    <FormMessage />
-                                </FormItem>
-                            )}
-                        />
-                    </div>
-                </form>
-            </Form>
-            */
 }
