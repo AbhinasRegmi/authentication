@@ -16,10 +16,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-        <NextTransitionBar />
+    <html lang="en" suppressHydrationWarning>
+      <NextTransitionBar color="black" showSpinner={false} />
       <body className={inter.className}>
-        {children}</body>
+        {children}
+      </body>
     </html>
   );
 }
