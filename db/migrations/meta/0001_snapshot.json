@@ -1,0 +1,32 @@
+{
+  "id": "580e789b-daeb-4a7a-b7fd-283c5ce081a7",
+  "prevId": "daf3981d-31df-4215-a2fa-89a069f690fa",
+  "version": "5",
+  "dialect": "pg",
+  "tables": {
+    "user_table": {
+      "name": "user_table",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "uuid",
+          "primaryKey": true,
+          "notNull": true,
+          "default": "gen_random_uuid()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {}
+    }
+  },
+  "enums": {},
+  "schemas": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}
