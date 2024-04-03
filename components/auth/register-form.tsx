@@ -76,7 +76,7 @@ export function RegisterForm() {
                                             <Input
                                                 {...field}
                                                 disabled={isPending}
-                                                placeholder='Enter your first name'
+                                                placeholder='John'
                                             />
                                         </FormControl>
                                         <FormMessage />
@@ -96,7 +96,7 @@ export function RegisterForm() {
                                             <Input
                                                 {...field}
                                                 disabled={isPending}
-                                                placeholder="Enter your last name"
+                                                placeholder="Doe"
                                             />
                                         </FormControl>
                                         <FormMessage />
@@ -115,7 +115,7 @@ export function RegisterForm() {
                                         <FormControl>
                                             <Input
                                                 {...field}
-                                                placeholder="Enter you email"
+                                                placeholder="johndoe@email.com"
                                                 type="email"
                                                 disabled={isPending}
                                             />
@@ -135,7 +135,7 @@ export function RegisterForm() {
                                         <FormControl>
                                             <Input
                                                 {...field}
-                                                placeholder='Enter you secure password'
+                                                placeholder='******'
                                                 type="password"
                                                 disabled={isPending}
                                             />

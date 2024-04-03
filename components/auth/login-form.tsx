@@ -97,7 +97,7 @@ export function LoginForm() {
                                             <Input
                                             {...field}
                                             disabled={isPending}
-                                            placeholder='Enter you secret password'
+                                            placeholder='******'
                                             type="password"
                                             />
                                         </FormControl>
