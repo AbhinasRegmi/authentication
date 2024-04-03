@@ -5,8 +5,8 @@ import * as z from "zod";
 import {RegisterSchema} from "@/schemas/register";
 import bcrypt from "bcrypt";
 import {db} from "@/db/connection";
-import { users } from "@/db/schema";
-import {eq} from "drizzle-orm";
+import { users } from "@/db/schemas";
+import {getUserByEmail} from "@/db/query/user";
 
 export async function RegisterAction(values: z.infer<typeof RegisterSchema>){
     const validatedFields = RegisterSchema.safeParse(values);
@@ -18,12 +18,8 @@ export async function RegisterAction(values: z.infer<typeof RegisterSchema>){
     const {firstName, lastName, email, password} = validatedFields.data;
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    const res = await db.
-    select({email: users.email}).
-    from(users).
-    where(eq(users.email, email)).limit(1);
-
-    if(res.length === 1){
+    const res = await getUserByEmail(email);
+    if(res){
         return {error: "User with given email already exists."}
     }
 
