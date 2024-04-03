@@ -9,29 +9,28 @@ import { Tool } from "@/components/ui/tool";
 export function Social() {
     return (
         <div className="w-full flex gap-4">
-            <Tool text="Login with Google">
-                <Button
-                    variant="outline"
-                    size="lg"
-                    className="w-full text-xl"
-                    onClick={() => { console.log('Google login clicked.') }}
-                    tabIndex={-1}
-                >
-                    <FaGoogle />
-                </Button>
-            </Tool>
+            <Button
+                variant="outline"
+                size="lg"
+                className="w-full text-xl"
+                onClick={() => { console.log('Google login clicked.') }}
+                tabIndex={-1}
+            >
+                <FaGoogle />
+            </Button>
 
-            <Tool text="Login with Github">
-                <Button
-                    variant="outline"
-                    size="lg"
-                    className="w-full text-xl"
-                    onClick={() => { console.log('Github login clicked.') }}
-                    tabIndex={-1}
-                >
-                    <FaGithub />
-                </Button>
-            </Tool>
+
+
+            <Button
+                variant="outline"
+                size="lg"
+                className="w-full text-xl"
+                onClick={() => { console.log('Github login clicked.') }}
+                tabIndex={-1}
+            >
+                <FaGithub />
+            </Button>
+
 
         </div>
     )
