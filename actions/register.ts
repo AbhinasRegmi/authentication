@@ -3,7 +3,7 @@
 import "dotenv/config";
 import * as z from "zod";
 import {RegisterSchema} from "@/schemas/register";
-import bcrypt from "bcrypt";
+import bcrypt from "bcryptjs";
 import {db} from "@/db/connection";
 import { users } from "@/db/schemas";
 import {getUserByEmail} from "@/db/query/user";
