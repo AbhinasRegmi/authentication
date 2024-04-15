@@ -24,6 +24,7 @@
     "dotenv": "^16.4.5",
     "drizzle-orm": "^0.30.6",
     "next": "14.1.4",
+    "next-auth": "^5.0.0-beta.16",
     "next-transition-bar": "^1.1.1",
     "postgres": "^3.4.4",
     "react": "^18",
