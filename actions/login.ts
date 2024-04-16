@@ -24,10 +24,13 @@ export async function LoginAction(values: z.infer<typeof LoginSchema>){
         });
 
     }catch(err){
+
         if(err instanceof AuthError){
             switch(err.type){
                 case "CredentialsSignin":
                     return {error: "Invalid credentials"}
+                case "AccessDenied":
+                    return {error: "User is not verified."}
                 default:
                     return {error: "Something went wrong"}
             }

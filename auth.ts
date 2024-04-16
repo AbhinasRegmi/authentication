@@ -8,6 +8,8 @@ import { LoginSchema } from "@/schemas/login";
 import { getUserByEmail, getUserById } from "@/db/query/user";
 import bcrypt from "bcryptjs";
 import {RoleType} from "@/db/schemas";
+import {AccessDenied} from "@auth/core/errors";
+
 
 declare module "next-auth" {
   
@@ -79,6 +81,19 @@ export const { handlers: { GET, POST }, auth, signIn, signOut } = NextAuth(
         }
 
         return token;
+      },
+
+      async signIn({user}){
+
+        if(!user.id) return true;
+
+        const existingUser = await getUserById(user.id);
+
+        if(!existingUser || !existingUser.emailVerified){
+          return false;
+        }
+
+        return true;
       }
     }
   }
