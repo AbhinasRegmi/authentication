@@ -7,6 +7,8 @@ import {signIn} from "@/auth";
 import { AuthError } from 'next-auth';
 
 export async function LoginAction(values: z.infer<typeof LoginSchema>){
+    "use server";
+    
     const validatedFields = LoginSchema.safeParse(values);
 
     if(!validatedFields.success){
@@ -40,4 +42,17 @@ export async function LoginAction(values: z.infer<typeof LoginSchema>){
     }
 
     return {success: "Login successful"}
+}
+
+export async function ProviderLogin(provider: "google" | "github"){
+    "use server";
+
+    try{
+
+        await signIn(provider, {
+            redirectTo: DEFAULT_LOGIN_REDIRECT
+        })
+    }catch(err){
+        throw err;
+    }
 }
