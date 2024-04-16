@@ -64,6 +64,13 @@
       "when": 1713251356448,
       "tag": "0008_complex_shocker",
       "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "5",
+      "when": 1713267201893,
+      "tag": "0009_salty_hydra",
+      "breakpoints": true
     }
   ]
 }
