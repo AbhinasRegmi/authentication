@@ -25,8 +25,7 @@ export async function RegisterAction(values: z.infer<typeof RegisterSchema>){
 
     await db.
     insert(users).values({
-        first_name: firstName,
-        last_name: lastName,
+        name: firstName + " " + lastName,
         email,
         password: hashedPassword
     })

@@ -71,6 +71,13 @@
       "when": 1713267201893,
       "tag": "0009_salty_hydra",
       "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "5",
+      "when": 1713268901577,
+      "tag": "0010_natural_stick",
+      "breakpoints": true
     }
   ]
 }

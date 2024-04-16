@@ -10,6 +10,7 @@ import { RoleType } from "@/db/schemas";
 import authConfig from "@/auth.config";
 import bcrypt from "bcryptjs";
 import { db } from "@/db/connection";
+import {verifyUserEmail} from "@/db/mutation/user";
 
 declare module "next-auth" {
   interface User {
@@ -105,6 +106,17 @@ export const {
 
     },
   },
+  events: {
+    async linkAccount({user}){
+      if(user.id){
+        await verifyUserEmail(user.id);
+      }
+    }
+  },
+  pages: {
+    signIn: "/auth/login",
+    error: "/auth/error",
+  }
 });
 
 //EDGE Incompatible...

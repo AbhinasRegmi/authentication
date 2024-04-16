@@ -5,7 +5,8 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { LoginSchema } from '@/schemas/login';
 import {LoginAction} from '@/actions/login';
-import {useTransition, useState} from 'react';
+import {useTransition, useState, useEffect} from 'react';
+import {useSearchParams} from "next/navigation";
 
 import {
     Form,
@@ -24,6 +25,7 @@ import { CardWrapper } from "@/components/auth/card-wrapper";
 
 
 export function LoginForm() {
+    const searchParams = useSearchParams();
     const [isPending, startTransition] = useTransition();
     const [error, setError] = useState<string | undefined>(undefined);
     const [success, setSuccess] = useState<string | undefined>(undefined);
@@ -48,6 +50,14 @@ export function LoginForm() {
             })
         });
     }
+
+    useEffect(() => {
+        const error = searchParams.get("error");
+
+        if(error === 'OAuthAccountNotLinked'){
+            setError("Please SignIn with the same account you used originally.")
+        }
+    }, [])
 
     return (
         <CardWrapper
