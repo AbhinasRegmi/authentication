@@ -55,7 +55,7 @@ export function LoginForm() {
         const error = searchParams.get("error");
 
         if(error === 'OAuthAccountNotLinked'){
-            setError("Please SignIn with the same account you used originally.")
+            setError("Email already in use with a different provider. ")
         }
     }, [])
 
