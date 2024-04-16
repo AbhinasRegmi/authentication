@@ -5,6 +5,8 @@ import {LoginSchema} from '@/schemas/login';
 import { DEFAULT_LOGIN_REDIRECT } from '@/routes';
 import {signIn} from "@/auth";
 import { AuthError } from 'next-auth';
+import {getUserByEmail} from "@/db/query/user";
+import {generateVerificationToken} from "@/lib/token";
 
 export async function LoginAction(values: z.infer<typeof LoginSchema>){
     "use server";
@@ -16,6 +18,16 @@ export async function LoginAction(values: z.infer<typeof LoginSchema>){
     }
 
     const {email, password} = validatedFields.data;
+
+    const existingUser = await getUserByEmail(email);
+
+    if(!existingUser){
+        return {error: "Invalid credentials"}
+    }
+
+    if(!existingUser.emailVerified){
+        return {error: "User is not verified. Verification link has been sent."}
+    }
 
     try{
 

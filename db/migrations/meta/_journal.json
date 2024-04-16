@@ -5,85 +5,8 @@
     {
       "idx": 0,
       "version": "5",
-      "when": 1712158162390,
-      "tag": "0000_majestic_lethal_legion",
-      "breakpoints": true
-    },
-    {
-      "idx": 1,
-      "version": "5",
-      "when": 1712158216564,
-      "tag": "0001_wise_kulan_gath",
-      "breakpoints": true
-    },
-    {
-      "idx": 2,
-      "version": "5",
-      "when": 1712161132625,
-      "tag": "0002_overjoyed_loa",
-      "breakpoints": true
-    },
-    {
-      "idx": 3,
-      "version": "5",
-      "when": 1712162590093,
-      "tag": "0003_known_wendigo",
-      "breakpoints": true
-    },
-    {
-      "idx": 4,
-      "version": "5",
-      "when": 1712163042919,
-      "tag": "0004_careful_union_jack",
-      "breakpoints": true
-    },
-    {
-      "idx": 5,
-      "version": "5",
-      "when": 1712166221207,
-      "tag": "0005_massive_king_cobra",
-      "breakpoints": true
-    },
-    {
-      "idx": 6,
-      "version": "5",
-      "when": 1712166285385,
-      "tag": "0006_serious_mathemanic",
-      "breakpoints": true
-    },
-    {
-      "idx": 7,
-      "version": "5",
-      "when": 1713251282185,
-      "tag": "0007_damp_wallflower",
-      "breakpoints": true
-    },
-    {
-      "idx": 8,
-      "version": "5",
-      "when": 1713251356448,
-      "tag": "0008_complex_shocker",
-      "breakpoints": true
-    },
-    {
-      "idx": 9,
-      "version": "5",
-      "when": 1713267201893,
-      "tag": "0009_salty_hydra",
-      "breakpoints": true
-    },
-    {
-      "idx": 10,
-      "version": "5",
-      "when": 1713268901577,
-      "tag": "0010_natural_stick",
-      "breakpoints": true
-    },
-    {
-      "idx": 11,
-      "version": "5",
-      "when": 1713288949804,
-      "tag": "0011_thin_iron_monger",
+      "when": 1713294043643,
+      "tag": "0000_gray_warstar",
       "breakpoints": true
     }
   ]
