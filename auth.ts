@@ -1,13 +1,20 @@
-import NextAuth from "next-auth";
+import NextAuth, {User, type DefaultSession} from "next-auth";
 import { db } from "@/db/connection";
 import { DrizzleAdapter } from "@auth/drizzle-adapter";
 import authConfig from "@/auth.config";
 import Credentials from "next-auth/providers/credentials";
 import Github from "next-auth/providers/github";
 import { LoginSchema } from "@/schemas/login";
-import { getUserByEmail } from "@/db/query/user";
+import { getUserByEmail, getUserById } from "@/db/query/user";
 import bcrypt from "bcryptjs";
+import {RoleType} from "@/db/schemas";
 
+declare module "next-auth" {
+  
+  interface User {
+    role?: RoleType
+  }
+}
 
 export const { handlers: { GET, POST }, auth, signIn, signOut } = NextAuth(
   {
@@ -29,7 +36,8 @@ export const { handlers: { GET, POST }, auth, signIn, signOut } = NextAuth(
 
           if (validatedFields.success) {
             const { email, password } = validatedFields.data;
-            const user = await getUserByEmail(email);
+            let user = await getUserByEmail(email);
+
 
             if (!user || !user?.password) {
               return null;
@@ -46,7 +54,33 @@ export const { handlers: { GET, POST }, auth, signIn, signOut } = NextAuth(
           return null;
         }
       })
-    ]
+    ],
+    callbacks: {
+      async session({token, session}){
+
+        if(token.sub && session.user){
+          session.user.id = token.sub;
+          
+          if(token.role){
+            session.user.role = token.role as RoleType;
+          }
+        }
+
+        return session;
+      },
+
+      async jwt({token}){
+        if(token.sub){
+          const user = await getUserById(token.sub);
+
+          if(user){
+            token.role = user.role;
+          }
+        }
+
+        return token;
+      }
+    }
   }
 );
 
