@@ -11,5 +11,5 @@ export async function getVerificationTokenByEmail(email: string){
 export async function getUserEmailFromToken(token: string){
     const res = await db.select({email: verification.email}).from(verification).where(eq(verification.token, token));
 
-    return res[0].email ?? null;
+    return res[0]?.email ?? null;
 }
