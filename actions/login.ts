@@ -7,6 +7,7 @@ import {signIn} from "@/auth";
 import { AuthError } from 'next-auth';
 import {getUserByEmail} from "@/db/query/user";
 import {generateVerificationToken} from "@/lib/token";
+import {sendEmail} from "@/lib/email";
 
 export async function LoginAction(values: z.infer<typeof LoginSchema>){
     "use server";
@@ -26,9 +27,12 @@ export async function LoginAction(values: z.infer<typeof LoginSchema>){
     }
 
     if(!existingUser.emailVerified){
+        const token = await generateVerificationToken(email);
+        sendEmail({email, name: existingUser.name ?? 'User', link: `http://localhost:3000/auth/verification?token=${token}`})
         return {error: "User is not verified. Verification link has been sent."}
     }
 
+    
     try{
 
         await signIn("credentials", {

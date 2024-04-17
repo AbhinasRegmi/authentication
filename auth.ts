@@ -93,8 +93,8 @@ export const {
 
       if (account?.provider === "credentials") {
 
-        if (!user.id) return false;
-
+        if(!user.id) return false;
+        
         const existingUser = await getUserById(user.id);
 
         if (!existingUser || !existingUser.emailVerified) {
