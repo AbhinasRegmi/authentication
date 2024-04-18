@@ -34,7 +34,7 @@ export async function RegisterAction(values: z.infer<typeof RegisterSchema>){
 
     //TODO:Send verification email.
     const token = await generateVerificationToken(email);
-    sendEmail({email, name: firstName + " " + lastName, link: `http://localhost:3000/auth/verification?token=${token}`})
+    sendEmail({email, name: firstName + " " + lastName, link: `${process.env.ROOT_URL}/auth/verification?token=${token}`})
 
 
     return {success: "Confirmation email sent"}

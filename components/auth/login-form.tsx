@@ -58,7 +58,7 @@ export function LoginForm() {
         if(error === 'OAuthAccountNotLinked'){
             setError("Email already in use with a different provider. ")
         }
-    }, [])
+    }, [searchParams])
 
     return (
         <CardWrapper

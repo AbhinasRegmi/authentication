@@ -22,7 +22,7 @@ export function VerificationForm() {
                 }
             }
         })();
-    }, [])
+    }, [token])
 
     return (
         <CardWrapper

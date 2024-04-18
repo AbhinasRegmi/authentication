@@ -26,14 +26,9 @@ export function PasswordResetForm() {
     const [isPending, startTransition] = useTransition();
 
     const router = useRouter();
-    const token = useSearchParams().get("token");
+    const token = useSearchParams().get("token") ?? '';
 
-
-    if (!token) {
-        router.push("/auth/error");
-        return;
-    }
-
+    
     const form_ = useForm<z.infer<typeof ResetPasswordSchema>>(
         {
             resolver: zodResolver(ResetPasswordSchema),
@@ -43,6 +38,12 @@ export function PasswordResetForm() {
             }
         }
     )
+
+    if (!token) {
+        router.push("/auth/error");
+        return;
+    }
+
 
     function passwordResetHandler(values: z.infer<typeof ResetPasswordSchema>) {
         startTransition(() => {

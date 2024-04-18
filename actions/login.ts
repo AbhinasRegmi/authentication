@@ -28,7 +28,7 @@ export async function LoginAction(values: z.infer<typeof LoginSchema>){
 
     if(!existingUser.emailVerified){
         const token = await generateVerificationToken(email);
-        sendEmail({email, name: existingUser.name ?? 'User', link: `http://localhost:3000/auth/verification?token=${token}`})
+        sendEmail({email, name: existingUser.name ?? 'User', link: `${process.env.ROOT_URL}/auth/verification?token=${token}`})
         return {error: "User is not verified. Verification link has been sent."}
     }
 
