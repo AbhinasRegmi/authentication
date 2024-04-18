@@ -22,3 +22,12 @@ Fill the .env according to .env.example
 1. Credentials login i.e login with email and password
 2. Password reset and email verification
 3. Login with google and github
+
+
+## Examples
+
+![Home](examples/home.png)
+![Register](examples/register.png)
+![Register-Success](examples/register_success.png)
+![Verification-email](examples/verification.png)
+![Login](examples/login.png)
