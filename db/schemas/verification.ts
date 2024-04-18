@@ -3,7 +3,6 @@ import {
     text,
     uuid,
     timestamp,
-    primaryKey,
     unique
 } from "drizzle-orm/pg-core";
 

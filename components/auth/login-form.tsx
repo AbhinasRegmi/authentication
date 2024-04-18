@@ -7,6 +7,7 @@ import { LoginSchema } from '@/schemas/login';
 import {LoginAction} from '@/actions/login';
 import {useTransition, useState, useEffect} from 'react';
 import {useSearchParams} from "next/navigation";
+import Link from "next/link";
 
 import {
     Form,
@@ -112,6 +113,16 @@ export function LoginForm() {
                                             />
                                         </FormControl>
                                         <FormMessage />
+                                        <Button
+                                            variant={"link"}
+                                            size={"sm"}
+                                            asChild
+                                            className="pl-0"
+                                        >
+                                            <Link href={"/auth/reset"}>
+                                                Forgot password?
+                                            </Link>
+                                        </Button>
                                     </FormItem>
                                 )
                             }
