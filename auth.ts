@@ -1,5 +1,4 @@
 import { getUserByEmail, getUserById } from "@/db/query/user";
-
 import Credentials from "next-auth/providers/credentials";
 import { DrizzleAdapter } from "@auth/drizzle-adapter";
 import Github from "@auth/core/providers/github";

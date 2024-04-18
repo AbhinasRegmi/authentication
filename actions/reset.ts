@@ -55,6 +55,12 @@ export async function ResetPasswordAction(values: z.infer<typeof ResetPasswordSc
     if(!resetResponse){
         return {error: "Something went wrong."}
     }
+
+    const isExpired = new Date() > new Date(resetResponse.expires);
+
+    if(isExpired){
+        return {error: "The reset link has expired."}
+    }
     
     const hashedPassword = await bcrypt.hash(password, 10);
 
